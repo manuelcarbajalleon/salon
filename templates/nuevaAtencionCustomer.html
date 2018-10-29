@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}Nuevo Cliente{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h2>Nueva Atencion</h2>
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+    <dl>
+        {{ render_field(form.start) }}
+        {{ render_field(form.name) }}
+        {{ render_field(form.customer) }}
+    </dl>
+    <p><input type="button" value="Go back!" onclick="history.back()"><input type=submit value=Submit>
+</form>
+
+{% endblock %}
