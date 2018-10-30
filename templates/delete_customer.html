@@ -1,5 +1,11 @@
-<doctype html>
-<title>Eliminar Cliente - Patricia Barragan Salon</title>
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<h2>Patricia Barragan Salon</h2>
 <h2>Eliminar Cliente</h2>
 
 {% from "_formhelpers.html" import render_field %}
@@ -14,3 +20,4 @@
     </dl>
     <p><input type=submit value=Delete>
 </form>
+{% endblock %}
