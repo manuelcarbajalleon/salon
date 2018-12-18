@@ -18,6 +18,14 @@
         {{ render_field(form.telephone) }}
         {{ render_field(form.email) }}
     </dl>
-    <p><input type=submit value=Delete>
+    <p>
+      <script>
+      function goBack() {
+        window.history.back()
+      }
+      </script>
+
+      <button type="button" onclick="goBack()">Regresar</button>
+      <input type=submit value=Eliminar Cliente>
 </form>
 {% endblock %}

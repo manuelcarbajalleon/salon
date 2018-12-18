@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Atenciones por dia de Semana{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<p><p>
+<h2>Atenciones por dia de Semana</h2>
+<form method=post action="/">
+  <dl>
+    <p>
+
+    <input type=submit value=Regresar>
+  </dl>
+
+</form>
+{{ table  | safe}}
+
+{% endblock %}

@@ -9,6 +9,8 @@ class Results(Table):
     #comment = Col('comment')
     #address = Col('address')
     telephone = Col('telephone')
+    #telephone = Col('telephone',show=False)
+    #linkphone = Col('linkphone')
     #email = Col('email')
     edit = LinkCol('Edit', 'edit', url_kwargs=dict(id='id'))
     delete = LinkCol('Delete', 'delete', url_kwargs=dict(id='id'))

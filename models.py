@@ -1,6 +1,7 @@
 from myapp import db
 from sqlalchemy.orm import column_property
 
+
 class customer(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     firstname = db.Column(db.String(100))
@@ -10,6 +11,7 @@ class customer(db.Model):
     telephone = db.Column(db.String(100))
     email = db.Column(db.String(100))
     fullname = column_property(firstname + " " + lastname)
+    linkphone = column_property("\<a href='tel:" + telephone + "'>" + telephone + "</a>")
 
 
 class events(db.Model):

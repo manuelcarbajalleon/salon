@@ -5,6 +5,7 @@ from flask import render_template, flash,  request, redirect
 from myapp import db
 from tables import Results, atencionesResults
 from sqlalchemy import or_
+import pandas as pd
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -22,8 +23,9 @@ def index():
         results = customer.query.all()
 
     table = Results(results)
+    #table = results
     table.border = True
-    return render_template('index.html', form=search, table=table)
+    return render_template('index.html', form=search, table= table)
 
 
 @app.route('/atencionesCliente/<int:id>/<name>', methods=['GET', 'POST'])
@@ -58,6 +60,32 @@ def search_results(search):
         table = Results(results)
         table.border = True
         return render_template('results.html', table=table)
+
+
+@app.route('/atencionesReport')
+def atencionesReport():
+
+
+    sql = """SELECT concat(firstname, ' ' , lastname) as Cliente, count(*) as Visitas FROM customer c
+     left join events e on c.id = e.customer
+     GROUP by concat(firstname, ' ' , lastname)
+     order by Visitas desc """
+
+    df = pd.read_sql(sql, db.engine)
+
+    return render_template('atencionesReport.html',table= df.to_html(escape=False,classes='atencionesReport'))
+
+@app.route('/diaSemanaReport')
+def diaSemanaReport():
+
+
+    sql = """SELECT DAYOFWEEK(start),DAYNAME(start), COUNT(*) FROM events WHERE 1
+    GROUP BY DAYOFWEEK(start),DAYNAME(start)
+    ORDER BY DAYOFWEEK(start) """
+
+    df = pd.read_sql(sql, db.engine)
+
+    return render_template('diaSemanaReport.html',table= df.to_html(escape=False,classes='diaSemanaReport'))
 
 
 

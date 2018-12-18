@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Atenciones de Clientes{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<p><p>
+<h2>Clientes con mas Atenciones</h2>
+<form method=post action="/">
+  <dl>
+    <p>
+
+    <input type=submit value=Regresar>
+  </dl>
+
+</form>
+{{ table  | safe}}
+
+{% endblock %}
