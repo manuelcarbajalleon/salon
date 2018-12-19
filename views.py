@@ -195,6 +195,7 @@ def save_changesAtencion(atencion_info, form, new=False):
     atencion_info.start = form.start.data
     atencion_info.name = form.name.data
     atencion_info.customer = form.customer.data
+    atencion_info.costo = form.costo.data
 
 
     if new:

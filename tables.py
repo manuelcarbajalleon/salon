@@ -19,3 +19,4 @@ class Results(Table):
 class atencionesResults(Table):
     start = Col('start')
     name = Col('name')
+    costo = Col('costo')

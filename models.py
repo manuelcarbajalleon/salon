@@ -21,3 +21,4 @@ class events(db.Model):
     end = db.Column(db.DateTime)
     customer = db.Column(db.Integer)
     employee = db.Column(db.Integer)
+    costo = db.Column(db.Numeric)

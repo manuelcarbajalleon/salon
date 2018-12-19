@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import Form, StringField, TextField, PasswordField, DateField, IntegerField, HiddenField, TextAreaField
+from wtforms import Form, StringField, TextField, PasswordField, DateField, IntegerField, HiddenField, TextAreaField, DecimalField
 import time
 from datetime import date
 
@@ -24,3 +24,4 @@ class AtencionesClienteForm(Form):
     start = DateField('Fecha', default=date.today())
     name = TextAreaField('Servicio')
     customer = HiddenField('')
+    costo = DecimalField(default=0)
